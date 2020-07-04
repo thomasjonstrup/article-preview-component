@@ -1,6 +1,8 @@
 # article-preview-component
  Frontend Mentor challenge
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e64025c-5cb0-49d3-b7dc-9ac7d1b36b1b/deploy-status)](https://app.netlify.com/sites/article-preview-component/deploys)
+
 # Frontend Mentor - Article preview component
 
 ![Design preview for the Article preview component coding challenge](./design/desktop-preview.jpg)
