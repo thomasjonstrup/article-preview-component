@@ -9,7 +9,7 @@
 html {
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
-	font-size: 14px;
+	font-size: 12px;
 }
 
 *,
@@ -65,9 +65,14 @@ h1 {
 }
 
 body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	font-family: "Manrope", sans-serif;
 	font-weight: 500;
 	background-color: var(--light-grayish-blue);
+	min-height: 100vh;
 }
 
 .card {
@@ -75,12 +80,17 @@ body {
 	max-width: 730px;
 	border-radius: 0.5rem;
 	background-color: white;
-	overflow: hidden;
 	-webkit-box-shadow: 7px 15px 45px -11px rgba(0, 0, 0, 0.38);
 	-moz-box-shadow: 7px 15px 45px -11px rgba(0, 0, 0, 0.38);
 	box-shadow: 7px 15px 45px -11px rgba(0, 0, 0, 0.38);
 	display: flex;
 	flex-direction: column;
+}
+
+.card__img {
+	overflow: hidden;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
 }
 
 /*
@@ -92,11 +102,13 @@ body {
 
 .card__info__title {
 	color: var(--very-dark-grayish-blue);
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 }
 .card__info__subtitle {
 	color: var(--grayish-blue);
 	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.8rem;
 }
 
 /*
@@ -104,11 +116,23 @@ body {
 */
 
 .card__author {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	align-items: center;
+	width: 100%;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	position: relative;
+}
+
+.card__author__content {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 1rem 1rem 1rem;
-	position: relative;
+	width: 100%;
 }
 
 .card__author__image {
@@ -133,7 +157,6 @@ body {
 }
 
 .card__author__share {
-
 }
 
 .card__author__share__description {
@@ -146,23 +169,40 @@ body {
 	width: 100%;
 	position: absolute;
 	height: 100%;
-	margin-left: -1rem;
+	/* margin-left: -1rem; */
 	background-color: var(--very-dark-grayish-blue);
-		display: flex;
+	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 1rem;
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
 }
 
 .card__author__share__content {
 	display: none;
-
 }
 
 .card__author__share--show .card__author__share__content {
+	/* 	display: flex;
+	flex-direction: row;
+	justify-content: space-around; */
+	width: 75%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.card__author__sharebutton {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-color: var(--light-grayish-blue);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .card__author__sharebutton:hover {
@@ -186,40 +226,62 @@ body {
 	fill: #fff;
 }
 
-.card__author__sharebutton {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 50%;
-	background-color: var(--light-grayish-blue);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/*
-	    max-width: 730px;
-    margin: 4rem 1.5rem;
-    border-radius: 0.5rem;
-    background: #fff;
-    box-shadow: var(--box-shadow
-
-*/
 .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: 100vh;
+	justify-content: center;
 }
-
 
 @media only screen and (min-width: 768px) {
 	.card {
 		flex-direction: row;
 	}
 
+	.card__img {
+		max-width: 40%;
+		border-top-left-radius: 0.5rem;
+		border-top-right-radius: 0;
+		border-bottom-left-radius: 0.5rem;
+	}
+
 	.card__img img {
 		height: 100%;
 		max-height: 100%;
+	}
+
+	.container {
+		max-width: 658px;
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.card__author__share--show {
+		top: -35px;
+		width: 170px;
+		height: 50px;
+		right: -49px;
+		border-radius: 0.5rem;
+		padding: 14px 30px;
+	}
+
+	.card__author__share--show .card__author__share__content {
+		width: 100%;
+	}
+
+	.card__author__share--show::before {
+		content: "";
+		position: absolute;
+		left: 80px;
+		top: 50px;
+		width: 0;
+		height: 0;
+		border-left: 0.5rem solid transparent;
+		border-right: 0.5rem solid transparent;
+		border-top: 0.5rem solid var(--very-dark-grayish-blue);
+		clear: both;
 	}
 }
